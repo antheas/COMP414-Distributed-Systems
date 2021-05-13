@@ -13,12 +13,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-INSERT INTO `users` VALUES ('1','geomar','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3pW7s4EGOTXw6SuxAFEY9M6','geomar@example.com','Jane',NOW()),
-('2','geomar2','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3pW7s4EGOTXw6SuxAFEY9M6','buckridge.marietta@example.net','Jane',NOW()),
-('3','geomar3','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3pW7s4EGOTXw6SuxAFEY9M6','johnson.alfredo@example.net','Jane',NOW()),
-('4','antheas','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3pW7s4EGOTXw6SuxAFEY9M6','hannah06@example.com','Jane',NOW()),
-('5','antheas2','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3pW7s4EGOTXw6SuxAFEY9M6','fahey.crystal@example.com','Jane',NOW()),
-('6','antheas3','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3pW7s4EGOTXw6SuxAFEY9M6','metz.stefan@example.org','Jane',NOW()),
+INSERT INTO `users` VALUES ('1','geomar','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','geomar@example.com','Jane',NOW()),
+('2','geomar2','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','buckridge.marietta@example.net','Jane',NOW()),
+('3','geomar3','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','johnson.alfredo@example.net','Jane',NOW()),
+('4','antheas','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','hannah06@example.com','Jane',NOW()),
+('5','antheas2','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','fahey.crystal@example.com','Jane',NOW()),
+('6','antheas3','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','metz.stefan@example.org','Jane',NOW()),
 ('7','bechtelar.jovan','d67da77637f4693f292717e7492018d62d4b541767c95ddf4a','gaylord.lavern@example.org','Jane',NOW()),
 ('8','oberge','7079d842d52f0ac73c09818dd6dc7c3822097fc44b22821bec','mcclure.astrid@example.com','Jane',NOW()),
 ('9','nicolas.jerald','7189600b32e82314dcd3df798206fafb4e7a00a053dbb67020','owolff@example.net','Jane',NOW()),
@@ -112,7 +112,8 @@ INSERT INTO `users` VALUES ('1','geomar','$2y$10$6toyIJ/DOpgHoKBRFA2Nt.uvSg1NQK3
 ('97','christ96','626fdeca5570b8c2d547d75f06e7389fdbebb025bdef466d1e','leda14@example.org','Jane',NOW()),
 ('98','yledner','b56149ee967be86e675b044a282f02c38824642fd276272fd1','tyree.tillman@example.net','Jane',NOW()),
 ('99','lulu03','23b77c7f2672480b69bf20ec0dd5e52dc210f380c7c1cd7f18','okuneva.jacky@example.com','Jane',NOW()),
-('100','michel87','3e6bf826f907f6c7aa066542b41281cea44060bfcbab821d2e','bergnaum.lizeth@example.net','Jane',NOW()); 
+('100','michel87','3e6bf826f907f6c7aa066542b41281cea44060bfcbab821d2e','bergnaum.lizeth@example.net','Jane',NOW()),
+('101','admin','$2y$10$eBWwZwOcDy03bgtE.gf5KeWu./9960oHQm8JhX/XG2Sg4zISzAqfi','admin@admin.com','Jane',NOW()); 
 
 
 INSERT INTO `roles` (`user_id`, `role`) VALUES
@@ -127,7 +128,10 @@ INSERT INTO `roles` (`user_id`, `role`) VALUES
 (4, 'admin'),
 (5, 'player'),
 (5, 'official'),
-(6, 'player');
+(6, 'player'),
+(101, 'player'),
+(101, 'official'),
+(101, 'admin');
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

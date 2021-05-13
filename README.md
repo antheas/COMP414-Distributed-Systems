@@ -50,6 +50,15 @@ And then in order to shut the system down run:
 docker-compose down
 ``` 
 
+You can use username and password `admin` for an administrator account.
+
+There is a `docker-compose` file with mounts to the local files that can be
+used for development.
+You can use it with:
+```
+docker-compose -f docker-compose-dev.yml up 
+docker-compose -f docker-compose-dev.yml down 
+```
 
 ## Swarm mode
 In order to run in swarm mode, run:
