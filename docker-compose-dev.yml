@@ -26,7 +26,7 @@ services:
     container_name: auth
   
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest  
+    image: phpmyadmin/phpmyadmin:5  
     secrets:
       - mysql_root_password
     depends_on:
@@ -96,7 +96,7 @@ services:
 
   # Mongodb replica set for api
   mongodb-primary:
-    image: 'bitnami/mongodb:latest'
+    image: 'bitnami/mongodb:4.2'
     restart: always
     environment:
       MONGODB_ADVERTISED_HOSTNAME: mongodb-primary
@@ -121,7 +121,7 @@ services:
     #  - 'mongodb_master_data:/bitnami'
 
   mongodb-secondary:
-    image: 'bitnami/mongodb:latest'
+    image: 'bitnami/mongodb:4.2'
     networks:
       - backend
     depends_on:
@@ -137,7 +137,7 @@ services:
     container_name: mongodb-secondary
 
   mongodb-arbiter:
-    image: 'bitnami/mongodb:latest'
+    image: 'bitnami/mongodb:4.2'
     networks:
       - backend
     depends_on:
@@ -154,7 +154,7 @@ services:
 
   # Others
   zookeeper:
-    image: 'bitnami/zookeeper:latest'
+    image: 'bitnami/zookeeper:3'
     networks:
       - backend
     environment:
@@ -193,32 +193,32 @@ services:
     container_name: game
     command: bash -c "npm i && npm run dev"
   
-  game2:
-    # build:
-    #   context: './game/'
-    #   dockerfile: Dockerfile.dev
-    image: node:12
-    working_dir: /home/node/app/
-    environment:
-      JWT_PUBLIC_KEY: "${AUTH_PUBLIC}"
-      MONGODB_USER: '${MONGODB_PLAYMASTER_USER}'
-      MONGODB_DATABASE: '${MONGODB_PLAYMASTER_DB}'
-      MONGODB_REPLICA_SET_NAME: '${MONGODB_REPLICA_SET_NAME}'
-      MONGODB_REPLICA_SET_MEMBERS: '${MONGODB_REPLICA_SET_MEMBERS}'
-      PLAY_SUBNET_PREFIX: '192.170.0.' 
-      NODE_ENV: 'development'
-      PORT: '${GAME_PORT}'
-    networks:
-      - backend
-      - play_network
-    depends_on:
-      - zookeeper
-    volumes:
-      - ./game:/home/node/app/
-    secrets:
-      - mongodb_playmaster_password
-    container_name: game2
-    command: bash -c "npm run dev"
+  # game2:
+  #   # build:
+  #   #   context: './game/'
+  #   #   dockerfile: Dockerfile.dev
+  #   image: node:12
+  #   working_dir: /home/node/app/
+  #   environment:
+  #     JWT_PUBLIC_KEY: "${AUTH_PUBLIC}"
+  #     MONGODB_USER: '${MONGODB_PLAYMASTER_USER}'
+  #     MONGODB_DATABASE: '${MONGODB_PLAYMASTER_DB}'
+  #     MONGODB_REPLICA_SET_NAME: '${MONGODB_REPLICA_SET_NAME}'
+  #     MONGODB_REPLICA_SET_MEMBERS: '${MONGODB_REPLICA_SET_MEMBERS}'
+  #     PLAY_SUBNET_PREFIX: '192.170.0.' 
+  #     NODE_ENV: 'development'
+  #     PORT: '${GAME_PORT}'
+  #   networks:
+  #     - backend
+  #     - play_network
+  #   depends_on:
+  #     - zookeeper
+  #   volumes:
+  #     - ./game:/home/node/app/
+  #   secrets:
+  #     - mongodb_playmaster_password
+  #   container_name: game2
+  #   command: bash -c "npm run dev"
   
   web:
     image: nginx
@@ -229,7 +229,7 @@ services:
       - "80:80"
     links:
       - "game"
-      - "game2"
+      # - "game2"
       - "auth"
       - "api"
       - "phpmyadmin"

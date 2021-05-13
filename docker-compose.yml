@@ -89,7 +89,7 @@ services:
      - 'master-data:/bitnami'
 
   mongodb-secondary:
-    image: 'bitnami/mongodb:latest'
+    image: 'bitnami/mongodb:4.2'
     ports:
       - "27017"
     depends_on:
@@ -103,7 +103,7 @@ services:
       MONGODB_REPLICA_SET_NAME: '${MONGODB_REPLICA_SET_NAME}'
 
   mongodb-arbiter:
-    image: 'bitnami/mongodb:latest'
+    image: 'bitnami/mongodb:4.2'
     ports:
       - "27017"
     depends_on:
